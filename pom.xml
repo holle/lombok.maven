@@ -9,7 +9,7 @@
 
   <name>Maven Plugin for Project Lombok</name>
   <description>Maven Plugin for Project Lombok</description>
-  <url>https://awhitford.github.io/lombok.maven/</url>
+  <url>https://dev-pcms.github.io/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
   <organization>
     <name>Anthony Whitford</name>
@@ -37,18 +37,18 @@
   </modules>
 
   <scm child.scm.url.inherit.append.path="false">
-    <connection>scm:git:https://github.com/awhitford/lombok.maven.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</developerConnection>
-    <url>https://github.com/awhitford/lombok.maven</url>
+    <connection>scm:git:https://github.com/dev-pcms/lombok.maven.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/dev-pcms/lombok.maven.git</developerConnection>
+    <url>https://github.com/dev-pcms/lombok.maven</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>github</system>
-    <url>https://github.com/awhitford/lombok.maven/issues</url>
+    <url>https://github.com/dev-pcms/lombok.maven/issues</url>
   </issueManagement>
   <ciManagement>
     <system>github</system>
-    <url>https://github.com/awhitford/lombok.maven/actions</url>
+    <url>https://github.com/dev-pcms/lombok.maven/actions</url>
   </ciManagement>
   <distributionManagement>
     <repository>
@@ -58,14 +58,14 @@
     </repository>
     <site>
       <id>github</id>
-      <url>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</url>
+      <url>scm:git:ssh://git@github.com/dev-pcms/lombok.maven.git</url>
     </site>
   </distributionManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.scm.id>awhitford-github-server</project.scm.id>
+    <project.scm.id>dev-pcms-github-server</project.scm.id>
     <maven.api.minimum>3.3.9</maven.api.minimum>
     <maven.api.version>3.8.5</maven.api.version>
     <lombok.version>1.18.20</lombok.version>
