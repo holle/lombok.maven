@@ -4,7 +4,7 @@
 
   <groupId>dev.pcms</groupId>
   <artifactId>lombok-maven</artifactId>
-  <version>1.18.20.1</version>
+  <version>1.18.20.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Maven Plugin for Project Lombok</name>
@@ -40,7 +40,7 @@
     <connection>scm:git:https://github.com/dev-pcms/lombok.maven.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/dev-pcms/lombok.maven.git</developerConnection>
     <url>https://github.com/dev-pcms/lombok.maven</url>
-    <tag>lombok-maven-1.18.20.1</tag>
+    <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>github</system>
