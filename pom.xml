@@ -292,6 +292,7 @@
           </execution>
         </executions>
       </plugin>
+<!--
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
@@ -306,6 +307,7 @@
           </execution>
         </executions>
       </plugin>
+-->
     </plugins>
   </build>
 
@@ -367,6 +369,7 @@
           </reportSet>
         </reportSets>
       </plugin>
+<!--
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
@@ -378,6 +381,7 @@
           </reportSet>
         </reportSets>
       </plugin>
+-->
     </plugins>
   </reporting>
 
