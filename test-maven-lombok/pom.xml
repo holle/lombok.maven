@@ -5,7 +5,7 @@
   <parent>
     <groupId>dev.pcms</groupId>
     <artifactId>lombok-maven</artifactId>
-    <version>1.18.20.2-SNAPSHOT</version>
+    <version>1.18.36.2</version>
   </parent>
 
   <groupId>dev.pcms.test</groupId>
@@ -42,6 +42,12 @@
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
       <scope>test</scope>
+    </dependency>
+    <!-- For @lombok.Generated -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
     </dependency>
   </dependencies>
 
