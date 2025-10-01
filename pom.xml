@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.projectlombok</groupId>
+  <groupId>dev.pcms</groupId>
   <artifactId>lombok-maven</artifactId>
-  <version>1.18.20.1-SNAPSHOT</version>
+  <version>1.18.36.2</version>
   <packaging>pom</packaging>
 
   <name>Maven Plugin for Project Lombok</name>
   <description>Maven Plugin for Project Lombok</description>
-  <url>https://awhitford.github.io/lombok.maven/</url>
+  <url>https://dev-pcms.github.io/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
   <organization>
     <name>Anthony Whitford</name>
@@ -37,40 +37,29 @@
   </modules>
 
   <scm child.scm.url.inherit.append.path="false">
-    <connection>scm:git:https://github.com/awhitford/lombok.maven.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</developerConnection>
-    <url>https://github.com/awhitford/lombok.maven</url>
+    <connection>scm:git:https://github.com/dev-pcms/lombok.maven.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/dev-pcms/lombok.maven.git</developerConnection>
+    <url>https://github.com/dev-pcms/lombok.maven</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>github</system>
-    <url>https://github.com/awhitford/lombok.maven/issues</url>
+    <url>https://github.com/dev-pcms/lombok.maven/issues</url>
   </issueManagement>
   <ciManagement>
     <system>github</system>
-    <url>https://github.com/awhitford/lombok.maven/actions</url>
+    <url>https://github.com/dev-pcms/lombok.maven/actions</url>
   </ciManagement>
-  <distributionManagement>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <name>Nexus Release Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-    <site>
-      <id>github</id>
-      <url>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</url>
-    </site>
-  </distributionManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.scm.id>awhitford-github-server</project.scm.id>
+    <project.scm.id>dev-pcms-github-server</project.scm.id>
     <maven.api.minimum>3.3.9</maven.api.minimum>
     <maven.api.version>3.9.1</maven.api.version>
-    <lombok.version>1.18.20</lombok.version>
+    <lombok.version>1.18.36</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
-    <version.java>8</version.java>
+    <version.java>11</version.java>
   </properties>
 
   <build>
@@ -139,12 +128,15 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.5.0</version>
-          <configuration>
-            <source>${version.java}</source>
-            <!-- See https://issues.apache.org/jira/browse/MJAVADOC-595 -->
-            <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
-          </configuration>
+          <version>3.11.2</version>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -198,11 +190,6 @@
             <!-- We are deploying site using scm-publish, not site-deploy... -->
             <skipDeploy>true</skipDeploy>
           </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>3.2.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -298,6 +285,7 @@
           </execution>
         </executions>
       </plugin>
+<!--
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
@@ -312,6 +300,7 @@
           </execution>
         </executions>
       </plugin>
+-->
     </plugins>
   </build>
 
@@ -373,6 +362,7 @@
           </reportSet>
         </reportSets>
       </plugin>
+<!--
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
@@ -384,6 +374,7 @@
           </reportSet>
         </reportSets>
       </plugin>
+-->
     </plugins>
   </reporting>
 
@@ -396,6 +387,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.2.7</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -403,13 +395,9 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
-                <!-- See https://github.com/marketplace/actions/setup-java-jdk#publishing-using-apache-maven -->
                 <configuration>
-                  <!-- Prevent gpg from using pinentry programs -->
-                  <gpgArguments>
-                    <arg>--pinentry-mode</arg>
-                    <arg>loopback</arg>
-                  </gpgArguments>
+                  <keyname>${gpg.keyname}</keyname>
+                  <passphraseServerId>${gpg.keyname}</passphraseServerId>
                 </configuration>
               </execution>
             </executions>
@@ -429,14 +417,24 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
+            <version>3.3.1</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
                 <goals>
-                  <goal>jar-no-fork</goal>
+                  <goal>jar</goal>
                 </goals>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.7.0</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+            </configuration>
           </plugin>
         </plugins>
       </build>
