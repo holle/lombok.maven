@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.projectlombok</groupId>
+    <groupId>dev.pcms</groupId>
     <artifactId>lombok-maven</artifactId>
-    <version>1.18.20.1-SNAPSHOT</version>
+    <version>1.18.36.2</version>
   </parent>
 
-  <groupId>org.projectlombok.test</groupId>
+  <groupId>dev.pcms.test</groupId>
   <artifactId>test-maven-lombok</artifactId>
   <packaging>jar</packaging>
 
@@ -43,12 +43,18 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
+    <!-- For @lombok.Generated -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>org.projectlombok</groupId>
+        <groupId>dev.pcms</groupId>
         <artifactId>lombok-maven-plugin</artifactId>
         <version>${project.version}</version>
         <executions>
