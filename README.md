@@ -3,7 +3,7 @@
 
 This project contains two sub projects:
 
-1.  [lombok-maven-plugin](https://awhitford.github.io/lombok.maven/lombok-maven-plugin/) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.pcms/lombok-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.pcms/lombok-maven-plugin)
+1.  [lombok-maven-plugin](https://awhitford.github.io/lombok.maven/lombok-maven-plugin/) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.projectlombok/lombok-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.projectlombok/lombok-maven-plugin)
 
     - This is the maven plugin for Project Lombok.
     - Please refer to the [Plugin Usage](https://awhitford.github.io/lombok.maven/lombok-maven-plugin/usage.html).
