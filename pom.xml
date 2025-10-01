@@ -4,7 +4,7 @@
 
   <groupId>dev.pcms</groupId>
   <artifactId>lombok-maven</artifactId>
-  <version>1.18.36.2</version>
+  <version>1.18.42.2</version>
   <packaging>pom</packaging>
 
   <name>Maven Plugin for Project Lombok</name>
@@ -57,7 +57,7 @@
     <project.scm.id>dev-pcms-github-server</project.scm.id>
     <maven.api.minimum>3.3.9</maven.api.minimum>
     <maven.api.version>3.9.1</maven.api.version>
-    <lombok.version>1.18.36</lombok.version>
+    <lombok.version>1.18.42</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
     <version.java>11</version.java>
   </properties>
@@ -285,7 +285,6 @@
           </execution>
         </executions>
       </plugin>
-<!--
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
@@ -300,7 +299,6 @@
           </execution>
         </executions>
       </plugin>
--->
     </plugins>
   </build>
 
